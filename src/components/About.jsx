@@ -4,35 +4,39 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const About = () => {
   const containerRef = useRef(null);
 
-  // Content for the scroll text
+  // UX WRITING UPDATE:
+  // Focus: Clear definition of Consulting + AI Utility + Motivational Resilience
   const content = [
     { text: "FAITH [ai]", highlight: true },
-    { text: " is a purpose-driven community that helps entrepreneurs embrace Artificial Intelligence as an ally." },
+    { text: " is a strategic consultancy that bridges the gap between human purpose and artificial intelligence." },
     { break: true },
-    { text: "In the old world, failure was the end. In the AI era, failure is feedback. It's the training data required for the next iteration of your success." }
+    { text: "We don't just motivate; we operationalize. In our framework, failure isn't fatal—it's just " },
+    { text: "data", highlight: true },
+    { text: ". It is the essential feedback loop required to build a business that cannot be stopped." }
   ];
 
-  // Updated Features: Images updated to local public folder assets
+  // UX WRITING UPDATE:
+  // Focus: Specific deliverables (Workflows, Roadmaps, Community)
   const features = [
     {
       img: "/about1.jpg", 
-      title: "DATA-DRIVEN RESILIENCE",
-      desc: "Turn setbacks into raw data for your competitive advantage."
+      title: "FAILING FORWARD",
+      desc: "We teach you to treat setbacks as high-speed learning. Rapid iteration, not perfection, is the goal."
     },
     {
       img: "/about2.jpg",
-      title: "AI AS YOUR ALLY",
-      desc: "Amplify human potential by automating the mundane."
+      title: "AI INTEGRATION",
+      desc: "Stop drowning in tasks. We implement custom AI workflows that scale your operations and reclaim your time."
     },
     {
       img: "/about3.jpg",
-      title: "PURPOSEFUL GROWTH",
-      desc: "Aligning powerful innovation with your core mission."
+      title: "BUSINESS STRATEGY",
+      desc: "Clear, actionable roadmaps. We align your core mission with market data to drive profitable growth."
     },
     {
       img: "/about4.jpg",
-      title: "STRENGTH IN NUMBERS",
-      desc: "A collective building the stamina for an unpredictable future."
+      title: "THE COLLECTIVE",
+      desc: "Entrepreneurship is lonely. Join a network of founders using technology to amplify their impact."
     }
   ];
 
@@ -50,17 +54,18 @@ const About = () => {
              About Faith [ai]
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-8 uppercase tracking-tight leading-none">
-            AI + Purpose = <br />
-            <span className="text-yellow-400">Unstoppable</span>
+            Strategy. <br />
+            Resilience. <br />
+            <span className="text-yellow-400">Scale.</span>
           </h2>
         </div>
 
         {/* Right Column - Scroll Effect Text */}
         <div className="md:col-span-7 relative">
           <ScrollRevealParagraph content={content} />
-          {/* Quote Section */}
+          {/* Quote Section - Updated for clarity */}
           <div className="font-mono text-sm md:text-base border-l-2 border-yellow-400 pl-6 mt-16 opacity-80 max-w-md text-white/80">
-            Through <span className="underline">workshops</span>, <span className="underline">consulting</span>, and <span className="underline">storytelling</span>, we guide founders to turn setbacks into stepping stones.
+            We guide founders through <span className="underline text-yellow-400">Consulting</span>, <span className="underline text-yellow-400">AI Implementation</span>, and <span className="underline text-yellow-400">Community Support</span>.
           </div>
         </div>
       </div>
