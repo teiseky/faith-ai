@@ -8,28 +8,18 @@ const testimonials = [
     role: "Attendee",
   },
   {
-    name: "Clark Macasio",
-    quote: "Learned so much from our session with Coach Faith! Very generous in sharing, and majority of the learnings are very innovative, useful and fresh to us!",
-    role: "Attendee",
-  },
-  {
     name: "Alex Duran",
-    quote: "Today's training from the team is an eye-opener. Learned how AI/technology can help us understand our clients better, create more relevant solutions, and provide a smoother experience throughout their financial journey.",
+    quote: "Today's training is an eye-opener. Learned how AI/technology can help us understand our clients better, create relevant solutions, and provide a smoother experience.",
     role: "Attendee",
   },
   {
     name: "Eunice Camille Labayo",
-    quote: "Sobrang helpful ng AI training namin today. Our speaker explained everything in a simple, practical, and engaging way. Mas naintindihan ko how AI can help in our daily work. Thank you Ms. Faith for sharing your expertise.",
-    role: "Attendee",
-  },
-  {
-    name: "Jennylyn Querubin",
-    quote: "Thank you Ms Faith and team! Grabe, ang dami kong natutunan! Thank you po sa super helpful tips on how to maximize AI para maging smarter, faster and more productive.",
+    quote: "Sobrang helpful ng AI training namin today. Our speaker explained everything in a simple, practical, and engaging way. Mas naintindihan ko how AI can help in our daily work.",
     role: "Attendee",
   },
   {
     name: "Jayson Monteclaro Jogno",
-    quote: "I highly recommend Faith Failing Forward Fast to anyone looking to expand their digital skillset. The session that I attended was well structured, highly informative and engaging especially its hands-on approach.",
+    quote: "I highly recommend Faith Failing Forward Fast to anyone looking to expand their digital skillset. The session was well structured, highly informative and engaging.",
     role: "Attendee",
   }
 ];
@@ -43,16 +33,13 @@ const Card = ({ item, index, progress, range, targetScale }) => {
 
   const scale = useTransform(progress, range, [1, targetScale]);
   
-  // FIX: Tighter spacing calculation
-  // 1. Changed base from 10vh to 5vh (moves stack higher)
-  // 2. We keep index * 10px to maintain the visible "lip" of the card
+  // Tighter spacing calculation
   const topOffset = `calc(5vh + ${index * 10}px)`;
 
   return (
     <div 
       ref={container} 
-      // FIX: Reduced height from 80vh to 65vh
-      // This reduces the scroll distance required to reach the next card
+      // Reduced height slightly to account for fewer cards to scroll through
       className="h-[65vh] flex items-start justify-center sticky"
       style={{ top: topOffset }}
     >
@@ -72,7 +59,7 @@ const Card = ({ item, index, progress, range, targetScale }) => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <span className="h-[2px] w-8 bg-[#FFC800]"></span>
-              <span className="text-[#FFC800] font-mono text-xs uppercase tracking-[0.2em]"></span>
+              <span className="text-[#FFC800] font-mono text-xs uppercase tracking-[0.2em]">Review</span>
             </div>
             
             <p className="text-xl md:text-2xl font-medium text-neutral-200 leading-relaxed tracking-tight">
@@ -107,7 +94,6 @@ const Testimonials = () => {
   });
 
   return (
-    // Reduced padding-bottom slightly
     <section className="bg-[#050505] relative z-10 pt-24 pb-32">
       
       {/* Introduction Area */}
@@ -123,8 +109,7 @@ const Testimonials = () => {
       {/* Stacking Cards Container */}
       <div ref={container} className="px-6">
         {testimonials.map((item, index) => {
-          // FIX: Reduced scale factor from 0.05 to 0.04
-          // This keeps the cards visually closer together in the 3D space
+          // Dynamic scale based on array length
           const targetScale = 1 - ((testimonials.length - index) * 0.04);
           
           return (
@@ -133,6 +118,7 @@ const Testimonials = () => {
               index={index} 
               item={item} 
               progress={scrollYProgress}
+              // With 4 items, range steps are 0, 0.25, 0.5, 0.75 - fits perfectly
               range={[index * 0.25, 1]}
               targetScale={targetScale}
             />
